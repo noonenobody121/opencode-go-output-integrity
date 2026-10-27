@@ -1,0 +1,30 @@
+{
+  "case_id": "OG-2026-10-27",
+  "as_of": "2026-10-27",
+  "model_as_reported": "DeepSeek V4.1 Flash",
+  "provider_as_reported": "OpenCode Go",
+  "counts": {
+    "logged_go_requests": 42,
+    "attempted": 41,
+    "cancelled": 1,
+    "reasoning_bearing_responses": 24,
+    "closing_think_in_reasoning": 4,
+    "misrouted_tail_characters": 912,
+    "content_with_analysis_or_summary_markup": 2,
+    "offline_assertions_passed": 7,
+    "offline_network_attempts": 0,
+    "historical_max_requests_sent_high": 41,
+    "session_final_text_characters": 125396,
+    "session_repeated_phrase_count": 1782,
+    "session_finish": "error",
+    "session_outcome": "interrupted"
+  },
+  "classification": [
+    "Session JSON is valid but final generated text is degenerate.",
+    "Four delimiter events were reported in upstream reasoning fields by a local MCC investigation; no vendor-certified server trace is included.",
+    "MCC replay and effort-mapping defects are documented separately.",
+    "Cross-provider comparisons were user-reported without controlled paired raw traces.",
+    "No deployed quantization precision or server weights were verified."
+  ],
+  "public_release": "Aggregated evidence only; unredacted sessions and private materials are not publicly distributed."
+}

@@ -1,0 +1,41 @@
+name: Deploy static research site to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate public site
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from json import loads
+          root=Path('site')
+          assert all((root/p).is_file() for p in ['index.html','styles.css','script.js','data/evidence.json'])
+          html=(root/'index.html').read_text()
+          assert 'OpenCode Go' in html and 'quantization' in html.lower()
+          loads((root/'data/evidence.json').read_text())
+          for p in root.rglob('*'):
+              if p.is_file():
+                  assert not any(x in p.read_text(errors='ignore') for x in ['romania.resell69@gmail.com','ses_e82bb8aa8fferqFVczW8YdYpiQ'])
+          print('Public static website validated')
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./site
+      - id: deployment
+        uses: actions/deploy-pages@v4
