@@ -1,19 +1,29 @@
-# Output Integrity — OpenCode Go case study
+# OpenCode Go & Quantized Models — Evidence-Led Subscriber Case Study
 
-An independent, privacy-reviewed, fully static website documenting output-format anomalies and a severe repeated-output session involving `opencode-go/deepseek-v4.1-flash`. The source is in `site/`.
+Live site: https://noonenobody121.github.io/opencode-go-output-integrity/
 
-## Deployment
+An independent investigation into whether reduced-precision / quantized model serving could have contributed to severe output failures experienced by one paying OpenCode Go subscriber using DeepSeek V4.1 Flash.
 
-GitHub Pages deploys automatically from `main` using `.github/workflows/pages.yml`. In **Settings → Pages**, set **Source → GitHub Actions**. Site: https://noonenobody121.github.io/opencode-go-output-integrity/
+## Central distinction
 
-## Research integrity
+**Observed:** Large repeated final response, reported upstream reasoning-tag anomalies, visible native-client and bridged-client formatting problems, and separate documented MCC adapter defects.
 
-The quantization hypothesis is **not confirmed**. The site separates directly countable session behavior, investigator-reported local request analysis and user-reported cross-provider comparisons. It also documents alternative causes, including decoding, context, adapter and renderer behavior.
+**Hypothesis:** Aggressive quantization *might* contribute to the output degradation, as suggested by published low-bit research. **Not verified:** OpenCode Go's deployed weight precision, exact backend configuration, or causal attribution to quantization.
 
-## Privacy
+The site makes the paid-subscriber chronology, technical evidence, screenshots/exhibit descriptions, research and competing causes easy to understand without overstating certainty.
 
-No account email, session identifiers, raw logs, unrelated project files, secret API keys or private legal case files are included. The status label is a text transcription rather than the private screenshot.
+## Evidence and reproducibility
 
-## Local use
+- `site/data/evidence.json`: redacted counts and evidence classifications.
+- `site/data/methodology.md`: evidence inventory, original source context, published studies, fair-comparison protocol, and what would weaken or falsify the hypothesis.
+- `site/index.html`: visual evidence catalog and readable case narrative.
 
-Open `site/index.html` directly or serve `site/` with any static server. No compilation, dependencies, API calls or analytics.
+Original screenshots, full JSON/Markdown sessions and private legal files are **not** included in the public repository because they contain identifying local paths and unrelated project materials. The published catalog describes the exhibit provenance and limitations.
+
+## Static deployment
+
+A plain HTML/CSS/JavaScript site, without a build framework, database or external analytics. GitHub Pages deploys automatically from `main` through `.github/workflows/pages.yml`; the configured source is **GitHub Actions**.
+
+## Corrections
+
+Use [GitHub Issues](https://github.com/noonenobody121/opencode-go-output-integrity/issues) to submit redacted reproductions, contrary evidence or corrections. This site is not affiliated with OpenCode or DeepSeek.
