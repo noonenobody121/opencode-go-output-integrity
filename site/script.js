@@ -22,3 +22,32 @@ const menu=document.getElementById('menu-toggle');const nav=document.getElementB
 menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));nav.hidden=!open;});nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.hidden=true;menu.setAttribute('aria-expanded','false');}));document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu&&nav&&!nav.hidden){nav.hidden=true;menu.setAttribute('aria-expanded','false');menu.focus();}});
 const snippet=`{"provider":"[go | official | other]","model_revision":"[verified version]","harness":"[native | bridge]","context_tokens":0,"effort_sent":"[recorded]","reasoning_valid":true,"tool_calls_valid":true,"json_schema_valid":true,"loop_detected":false,"stop_reason":"[observed]"}`;
 const btn=document.getElementById('copy-template');btn?.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(snippet);btn.textContent='Copied ✓';}catch{btn.textContent='Use HTTPS to enable copying';}setTimeout(()=>btn.textContent='Copy test template ⧉',2500);});
+
+// Full silent video is available directly on the homepage; chapters are real playback controls.
+const homepageVideo=document.getElementById('home-evidence-video');
+const homepageChapters=Array.from(document.querySelectorAll('[data-home-seek]'));
+const selectVideoChapter=(target)=>{
+  homepageChapters.forEach(b=>{
+    const active=b===target;
+    b.classList.toggle('is-active',active);
+    if(active)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');
+  });
+};
+if(homepageVideo){
+  homepageChapters.forEach(button=>button.addEventListener('click',()=>{
+    const sec=Number(button.dataset.homeSeek);
+    if(!Number.isFinite(sec))return;
+    try{homepageVideo.currentTime=Math.max(0,sec);}catch{}
+    selectVideoChapter(button);
+    homepageVideo.play().catch(()=>{});
+  }));
+  homepageVideo.addEventListener('timeupdate',()=>{
+    if(!homepageVideo.duration)return;
+    const t=homepageVideo.currentTime;
+    const current=homepageChapters.reduce((prev,b)=>{
+      const n=Number(b.dataset.homeSeek);
+      return n<=t?b:prev;
+    },homepageChapters[0]);
+    if(current)selectVideoChapter(current);
+  });
+}
