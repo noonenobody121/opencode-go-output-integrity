@@ -83,3 +83,17 @@ h1,h2,h3,h4{font-family:var(--heading);letter-spacing:-.037em;line-height:1.16}h
 @media(max-width:1050px){.exhibit-layout{grid-template-columns:repeat(2,minmax(0,1fr))}.story-layout{grid-template-columns:1.15fr .85fr;gap:22px}}
 @media(max-width:850px){.story-layout{grid-template-columns:1fr}.story-summary{position:static}.exhibit-layout{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.brief-columns{grid-template-columns:1fr;gap:10px}.hypothesis-brief{padding:23px 21px}.brief-heading{align-items:flex-start}.brief-heading span:last-child{font-size:13px}.story-timeline{padding:20px}.story-step{grid-template-columns:37px 1fr;gap:13px}.story-step:not(:last-child)::before{left:18px;top:41px}.story-index{width:36px;height:36px;font-size:11px}.story-step h3{font-size:17px}.story-summary{padding:24px}.exhibit-layout{grid-template-columns:1fr}.exhibit-tile{min-height:0;padding:23px}.exhibits-section{padding:66px 0}}
+
+/* Reviewed 46s video evidence at 00:15 */
+.video-observation{background:#f0f7f3;border-top:1px solid #d4e5dc;border-bottom:1px solid #d4e5dc}
+.recording-card{display:grid;grid-template-columns:165px 1fr;gap:28px;background:#fff;border:1px solid #cfe2d8;border-radius:16px;padding:30px;box-shadow:0 14px 30px #123a3908}
+.recording-mark{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#e6f3ed;border:1px solid #cce2d7;border-radius:12px;padding:22px 15px}
+.recording-mark span{font:800 40px var(--body);letter-spacing:-.05em;color:#17646d}
+.recording-mark small{font-size:11px;color:#557479;margin-top:8px;line-height:1.35}
+.recording-card h3{margin:0 0 14px;color:#233e47;font:700 25px var(--heading);letter-spacing:-.025em}
+.recording-card p{font-size:14px;color:#526c72;line-height:1.75;margin:0 0 12px}
+.recording-card .recording-caution{font-size:12px;color:#6f7678}
+.recording-note{font-size:13px;color:#587078;margin:15px 0 0}
+.recording-action{margin-top:24px}
+.recording-action .button{display:inline-flex}
+@media(max-width:670px){.recording-card{grid-template-columns:1fr;padding:20px}.recording-mark{padding:14px}.recording-mark span{font-size:31px}.recording-card h3{font-size:23px}.recording-action .button{white-space:normal;line-height:1.45}}
