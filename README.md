@@ -27,3 +27,7 @@ A plain HTML/CSS/JavaScript site, without a build framework, database or externa
 ## Corrections
 
 Use [GitHub Issues](https://github.com/noonenobody121/opencode-go-output-integrity/issues) to submit redacted reproductions, contrary evidence or corrections. This site is not affiliated with OpenCode or DeepSeek.
+
+## Visual evidence gallery
+
+The [public screenshot and video gallery](https://noonenobody121.github.io/opencode-go-output-integrity/evidence/) contains seven selectively cropped CLI screenshots and the full 46-second silent demonstration video. Video chapter markers include 00:15 (thinking-to-answer visual transition) and 00:41 (dense output). The original screen recording contains project-related visual context; media is user-provided, not vendor-verified. The public copy is muted and optimized. Binary MP4 is deterministically reconstructed in GitHub Actions from base64 fragments, with a published SHA-256 check.
